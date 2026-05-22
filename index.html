@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Windi Mardalena</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0c;
+            color: #e2e8f0;
+            scroll-behavior: smooth;
+        }
+
+        .navy-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .soft-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+        }
+
+        .nav-link.active {
+            color: #38bdf8;
+            border-bottom: 2px solid #38bdf8;
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 4px solid #1e293b;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .glass-card:hover .card-img {
+            transform: scale(1.1);
+        }
+
+        .skill-badge {
+            background: #1e293b;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            transform: translateY(-5px);
+            background: #334155;
+        }
+
+        section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .game-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <nav class="sticky top-0 z-50 glass-card py-4 px-6 mb-8">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold tracking-wider text-sky-400">WM.com</h1>
+            <div class="space-x-6">
+                <button onclick="showSection('home')" class="nav-link hover:text-sky-400 transition">Beranda</button>
+                <button onclick="showSection('cooking')" class="nav-link hover:text-sky-400 transition">Hobi Masak</button>
+                <button onclick="showSection('gaming')" class="nav-link hover:text-sky-400 transition">Hobi Game</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+        
+        <!-- SECTION: HOME -->
+        <section id="home" class="active">
+            <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 mt-10">
+                <div class="flex-1 text-center md:text-left">
+                    <h2 class="text-5xl md:text-6xl font-bold mb-4 text-white">Windi Mardalena</h2>
+                    <p class="text-xl text-sky-400 font-medium mb-6">Pelajar SMKN 1 BANGKINANG</p>
+                    <div class="glass-card p-6 rounded-2xl soft-shadow mb-8">
+                        <h3 class="text-lg font-semibold mb-3 border-b border-slate-700 pb-2">About Me</h3>
+                        <p class="text-slate-300 leading-relaxed">
+                            Halo nama saya Windi Mardalena, saya seorang pelajar dari SMK Negeri 1 Bangkinang. 
+                            Saya mungkin memiliki banyak hobi seperti Berlari, Menggambar, Memasak, Bermain bulu tangkis, dan bermain game.
+                        </p>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold mb-4 text-white">My Skills</h3>
+                    <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                        <span class="skill-badge"><i class="fas fa-running mr-2 text-sky-400"></i> Berlari</span>
+                        <span class="skill-badge"><i class="fas fa-paint-brush mr-2 text-sky-400"></i> Menggambar</span>
+                        <span class="skill-badge"><i class="fas fa-utensils mr-2 text-sky-400"></i> Memasak</span>
+                    </div>
+                </div>
+                <div class="flex-shrink-0">
+                    <div class="relative">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-sky-500 to-navy-900 rounded-2xl blur opacity-30"></div>
+                        <img src="https://i.ibb.co.com/YT0NL80z/IMG-20260408-WA0004.jpg" alt="Foto Windi Mardalena" class="profile-img relative">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div onclick="showSection('cooking')" class="glass-card p-8 rounded-3xl soft-shadow cursor-pointer hover:border-sky-500 transition-all group overflow-hidden">
+                    <div class="flex justify-between items-start mb-4">
+                        <i class="fas fa-mortar-pestle text-4xl text-sky-400"></i>
+                        <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 transition"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Aktivitas Memasak</h3>
+                    <p class="text-slate-400 text-sm">Eksplorasi rasa dan resep masakan favorit saya.</p>
+                </div>
+                <div onclick="showSection('gaming')" class="glass-card p-8 rounded-3xl soft-shadow cursor-pointer hover:border-sky-500 transition-all group overflow-hidden">
+                    <div class="flex justify-between items-start mb-4">
+                        <i class="fas fa-gamepad text-4xl text-sky-400"></i>
+                        <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 transition"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Dunia Gaming</h3>
+                    <p class="text-slate-400 text-sm">Strategi, ketangkasan, dan kreativitas dalam game.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: HOBI MEMASAK -->
+        <section id="cooking">
+            <h2 class="text-4xl font-bold mb-2 text-center text-white">Hobi Memasak</h2>
+            <p class="text-slate-400 text-center mb-12">Koleksi menu masakan favorit yang estetik dan lezat.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Nasi Goreng -->
+                <div class="glass-card rounded-3xl overflow-hidden soft-shadow transition">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=1025&auto=format&fit=crop" alt="Nasi Goreng" class="card-img">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-sky-400">Nasi Goreng</h3>
+                        <p class="text-slate-300 text-sm mb-4 italic">"Hidangan klasik yang gurih dan mengenyangkan."</p>
+                        <div class="border-t border-slate-700 pt-4">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Bahan-bahan:</span>
+                            <ul class="text-sm text-slate-400 mt-2 list-disc list-inside space-y-1">
+                                <li>Nasi putih</li>
+                                <li>Bawang putih & merah</li>
+                                <li>Kecap manis</li>
+                                <li>Telur, cabai, garam</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mie Goreng -->
+                <div class="glass-card rounded-3xl overflow-hidden soft-shadow transition">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?q=80&w=992&auto=format&fit=crop" alt="Mie Goreng" class="card-img">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-sky-400">Mie Goreng</h3>
+                        <p class="text-slate-300 text-sm mb-4 italic">"Mie kenyal dengan perpaduan bumbu rempah yang meresap."</p>
+                        <div class="border-t border-slate-700 pt-4">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Bahan-bahan:</span>
+                            <ul class="text-sm text-slate-400 mt-2 list-disc list-inside space-y-1">
+                                <li>Mie kuning</li>
+                                <li>Sawi hijau, ayam suwir</li>
+                                <li>Kecap asin</li>
+                                <li>Kemiri, lada</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pempek -->
+                <div class="glass-card rounded-3xl overflow-hidden soft-shadow transition">
+                    <div class="overflow-hidden">
+                        <img src="https://i.ibb.co.com/39XhW0fG/download-8.jpg" alt="Pempek" class="card-img">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-sky-400">Pempek</h3>
+                        <p class="text-slate-300 text-sm mb-4 italic">"Camilan khas Palembang yang kenyal dan kaya rasa ikan."</p>
+                        <div class="border-t border-slate-700 pt-4">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Bahan-bahan:</span>
+                            <ul class="text-sm text-slate-400 mt-2 list-disc list-inside space-y-1">
+                                <li>Ikan tenggiri giling</li>
+                                <li>Tepung sagu/tapioka</li>
+                                <li>Air es, garam</li>
+                                <li>Penyedap rasa</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button onclick="showSection('home')" class="bg-slate-800 hover:bg-slate-700 text-white px-8 py-3 rounded-full transition soft-shadow font-semibold">Kembali ke Beranda</button>
+            </div>
+        </section>
+
+        <!-- SECTION: HOBI GAME -->
+        <section id="gaming">
+            <h2 class="text-4xl font-bold mb-2 text-center text-white">Hobi & Hiburan</h2>
+            <p class="text-slate-400 text-center mb-12 max-w-2xl mx-auto">Bagi saya, bermain game bukan sekadar mengisi waktu luang, tapi juga cara melatih strategi, ketangkasan, dan kreativitas.</p>
+            
+            <div class="space-y-8">
+                <!-- MLBB -->
+                <div class="glass-card p-8 rounded-3xl soft-shadow flex flex-col md:flex-row gap-8 items-center border-l-4 border-sky-500">
+                    <div class="flex-shrink-0">
+                        <img src="https://i.ibb.co.com/cX6MGmzS/download-9.jpg" alt="Logo MLBB" class="game-icon soft-shadow border border-slate-700">
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="text-2xl font-bold mb-2 text-white">Mobile Legends: Bang Bang</h3>
+                        <p class="text-slate-300 mb-4">Bermain MLBB mengajarkan saya pentingnya kerja sama tim dan penguasaan mikro-makro dalam strategi.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-700">
+                                <span class="text-xs font-bold text-sky-400 block mb-1">Kenapa suka?</span>
+                                <p class="text-sm">Ketegangan saat teamfight dan kepuasan draft pick.</p>
+                            </div>
+                            <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-700">
+                                <span class="text-xs font-bold text-sky-400 block mb-1">Role Favorit</span>
+                                <p class="text-sm">Exp / Roamer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Block Blast -->
+                <div class="glass-card p-8 rounded-3xl soft-shadow flex flex-col md:flex-row-reverse gap-8 items-center border-r-4 border-sky-400">
+                    <div class="flex-shrink-0">
+                        <img src="https://i.ibb.co.com/J9FwndL/download-10.jpg" alt="Logo Block Blast" class="game-icon soft-shadow border border-slate-700" onerror="this.src='https://via.placeholder.com/80?text=Block+Blast'">
+                    </div>
+                    <div class="flex-1 text-center md:text-right">
+                        <h3 class="text-2xl font-bold mb-2 text-white">Block Blast</h3>
+                        <p class="text-slate-300 mb-4">Game puzzle yang adiktif untuk mengasah logika spasial dan ketenangan di bawah tekanan.</p>
+                        <div class="flex gap-4 justify-center md:justify-end">
+                            <div class="bg-slate-800/50 p-3 rounded-lg max-w-[200px] border border-slate-700">
+                                <span class="text-xs font-bold text-sky-400 block mb-1">Kenapa suka?</span>
+                                <p class="text-sm">Sangat cocok untuk istirahat singkat agar otak tetap fokus.</p>
+                            </div>
+                            <div class="bg-slate-800/50 p-3 rounded-lg max-w-[200px] border border-slate-700">
+                                <span class="text-xs font-bold text-sky-400 block mb-1">Target</span>
+                                <p class="text-sm">Selalu mencoba pecahkan high score harian.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Roblox -->
+                <div class="glass-card p-8 rounded-3xl soft-shadow flex flex-col md:flex-row gap-8 items-center border-l-4 border-white/20">
+                    <div class="flex-shrink-0">
+                        <img src="https://i.ibb.co.com/bR2sYYRs/download-2.png" alt="Logo Roblox" class="game-icon soft-shadow border border-slate-700 bg-white p-2">
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="text-2xl font-bold mb-2 text-white">Roblox</h3>
+                        <p class="text-slate-300 mb-4">Platform kreativitas tanpa batas. Saya sangat menikmati mengeksplorasi dunia buatan komunitas seperti Tycoon atau Obby.</p>
+                        <p class="text-sm text-sky-400 bg-sky-900/10 p-4 rounded-xl border border-sky-900/30">
+                            <strong>Ketertarikan:</strong> Saya juga tertarik mempelajari bagaimana mekanisme sebuah room di Roblox dibuat menggunakan bahasa pemrograman Luau.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <button onclick="showSection('home')" class="bg-slate-800 hover:bg-slate-700 text-white px-8 py-3 rounded-full transition soft-shadow font-semibold">Kembali ke Beranda</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-800 text-center">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-6">Let's Connect</h2>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://www.tiktok.com/@ndykilll0496" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full glass-card text-2xl hover:bg-sky-500 hover:text-white transition">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+            <p class="text-slate-500 text-sm">© 2024 Windi Mardalena. Pelajar SMK Negeri 1 Bangkinang.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show target section
+            const target = document.getElementById(sectionId);
+            if (target) {
+                target.classList.add('active');
+            }
+
+            // Update nav buttons
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                // Mapping display names for checking
+                const label = link.textContent.toLowerCase();
+                if (
+                    (sectionId === 'home' && label.includes('beranda')) ||
+                    (sectionId === 'cooking' && label.includes('masak')) ||
+                    (sectionId === 'gaming' && label.includes('game'))
+                ) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html> 
